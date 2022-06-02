@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl" class="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="../dist/style.css" rel="stylesheet">
+  <link href="../dist/costom.css" rel="stylesheet">
+  <title> All music</title>
+</head>
+
+<body>
+
+  <body class="font-sans relative overflow-x-hidden">
+
+    <div id="overlayMenu" class=" lg:hidden fixed w-0 h-full z-50 shadow-4xl ">
+      <nav id="navbar"
+        class="container flex dark:bg-[#0E2338] bg-white text-[#0E2338] py-6 w-full h-full flex-col justify-center items-center absolute top-0 right-[-60px] lg:hidden">
+        <h1 class="text-[#0E2338] dark:text-white  text-3xl">لوگو</h1>
+        <ul class="flex flex-col gap-6 font-light text-brown text-[#0E2338] dark:text-white mt-16 text-center">
+          <a class="font-semibold cursor-pointer" href="index.html" target="_blank">
+            صفحه اصلی
+          </a>
+          <a class="cursor-pointer" href="allmusic.html" target="_blank">
+            همه موزیک ها
+          </a>
+          <a class="cursor-pointer" href="./Thebest.html" target="_blank">
+            برترین آهنگ ها
+          </a>
+          <a class="cursor-pointer" href="./contactus.html" target="_blank">
+            تماس با ما
+          </a>
+        </ul>
+
+
+        <div class="items-center justify-between gap-5  flex mt-5 ">
+          <svg xmlns="http://www.w3.org/2000/svg" id="searchTogglehide"
+            class="hover:scale-125 duration-300 w-10 text-[#0E2338] dark:text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" id="searchToggleshow"
+            class="w-10 hover:rotate-180 fill-[#0E2338] dark:fill-white" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+            <path fill-rule="evenodd"
+              d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+          </svg>
+
+          <input id="serchinput" placeholder="جست و جو کنید .." type="text"
+            class="w-0  duration-500  text-white bg-transparent	 font-medium rounded-md text-sm  py-2.5 text-center  focus:outline-none bg-[#111]/0 my-2">
+        </div>
+      </nav>
+    </div>
+
+    <div class=" flex justify-center">
+      <nav
+        class=" bg-white dark:bg-[#0E2338] text-[#0E2338] py-7 flex lg:justify-evenly justify-evenly w-full  items-center fixed z-40">
+        <div class="flex justify-between container lg:hidden">
+          <h1 class="text-3xl text-[#0E2338] dark:text-white">لوگو</h1>
+          <button id="overlayshow" class="lg:hidden flex hover:scale-110  duration-500 hover:-translate-y-1 ">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 dark:fill-white dark:stroke-white" fill="#111"
+              viewBox="0 0 24 24" stroke="#111" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <button id="overlayhide" class="lg:hidden hidden hover:rotate-180	 duration-500 hover:-translate-y-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#111" class="w-10 dark:fill-white dark:stroke-white"
+              viewBox="0 0 16 16">
+              <path fill-rule="evenodd"
+                d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+              <path fill-rule="evenodd"
+                d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+            </svg>
+          </button>
+        </div>
+        <div class="flex items-center gap-10 w-2/12">
+          <h1 class="text-[#0E2338] dark:text-white hidden lg:flex text-3xl max-w-[20%]">لوگو</h1>
+          <button id="theme-toggle" type="button">
+            <svg id="theme-toggle-dark-icon" class=" hover:fill-[#6f00ff] hover:stroke-[#6f00ff] duration-300 cursor-pointer hidden w-10" fill="#111" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <svg id="theme-toggle-light-icon" class="hover:fill-[#ffe600] hover:stroke-[#ffe600] duration-300 cursor-pointer hidden w-10" fill="#fff" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+       
+        </button>
+        </div>
+        <ul
+          class="w-7/12 flex max-w-[50%] items-center  gap-6 font-light text-brown dark:text-white text-center hidden lg:flex">
+          <a class="font-semibold cursor-pointer" href="index.html" target="-blank">
+            صفحه اصلی
+          </a>
+          <a class="cursor-pointer" href="./allmusic.html" target="_blank">
+            همه موزیک ها
+          </a>
+          <a class="cursor-pointer" href="./Thebest.html" target="_blank">
+            برترین آهنگ ها
+          </a>
+          <a class="cursor-pointer" href="./contactus.html" target="_blank">
+            تماس با ما
+          </a>
+
+
+        </ul>
+
+
+        <div class="items-center justify-between gap-5 w-2/12 hidden lg:flex">
+          <svg xmlns="http://www.w3.org/2000/svg" id="searchTogglehide1"
+            class="hover:scale-125 duration-300 w-10 dark:text-white" fill="none" viewBox="0 0 24 24"
+            stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" id="searchToggleshow1"
+            class="w-10 hover:rotate-180 fill-[#0E2338] dark:fill-white" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z" />
+            <path fill-rule="evenodd"
+              d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z" />
+          </svg>
+
+          <input id="serchinput1" placeholder="جست و جو کنید .." type="text"
+            class="w-0  duration-500 text-[#0E2338] dark:text-white dark:bg-transparent	 font-medium rounded-md text-sm  py-2.5 text-center  focus:outline-none bg-[#111]/0 my-2">
+        </div>
+
+
+      </nav>
+    </div>
+    <div class="dark:bg-[#0E2338] bg-[#FAFAFA] text-[#111] dark:text-white h-auto py-20 mt-24">
+      <h1 class="font-bold text-2xl lg:text-5xl dark:text-[#ffffff] text-[#000000] text-center container">
+        همه موزیک ها
+      </h1>
+      <p class="mt-4 text-base lg:text-xl dark:text-[#B1BCCB] text-[#000000]/50 text-center my-16 container">کیف پول من
+        یک سیستم لورم
+        ایپسوم
+        متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
+        روزنامه و
+        مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+        بهبود
+        ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان
+        را می
+        طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در
+        زبان
+        فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت
+        تایپ به
+        پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
+        اساسا
+        مورد استفاده قرار گیرد.
+      </p>
+
+      <div class="lg:flex lg:gap-10 lg:justify-center lg:items-start container lg:flex-wrap	">
+        <div
+          class="bg-white dark:bg-bluee/0 dark:border dark:border-bluee flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="music.html"
+            class="font-medium mt-2  hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <a href="artist.html">
+                <div class="flex items-center gap-2">
+                  <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                  <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+                </div>
+              </a>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div
+          class="bg-white dark:bg-bluee/0 dark:border dark:border-bluee flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="music.html"
+            class="font-medium mt-2  hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <a href="artist.html">
+                <div class="flex items-center gap-2">
+                  <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                  <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+                </div>
+              </a>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>    
+  
+        <div
+        class="bg-white dark:bg-bluee/0 dark:border dark:border-bluee flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+        data-aos="fade-up">
+        <img
+          class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+          src="../assets/images/timthumb.jfif" alt="">
+        <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+        <a href="music.html"
+          class="font-medium mt-2  hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+          و دانلود</a>
+        <div class="flex justify-evenly  w-full mt-4 h-5 ">
+          <div class="flex gap-9 items-center">
+            <a href="artist.html">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+            </a>
+            <div class="flex items-center gap-2">
+              <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+              <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+            </div>
+          </div>
+        </div>
+      </div>   
+         
+      </div>
+
+      <div class="lg:flex lg:gap-10 lg:justify-center lg:items-start container">
+        <div
+          class="bg-white dark:bg-bluee/0 dark:border dark:border-bluee flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2  hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div
+          class="bg-white flex flex-col dark:bg-bluee/0 dark:border dark:border-bluee justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white flex flex-col dark:bg-bluee/0 dark:border dark:border-bluee justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="bg-[#020015] h-auto  py-14">
+      <h1 class="font-bold text-2xl lg:text-5xl text-center text-white mb-8 container">لورم ایپسوم متن ساختگی با
+        تولید
+        سادگی
+      </h1>
+      <div class="lg:flex lg:gap-10 lg:justify-center lg:items-start container">
+        <div
+          class="border border-[#2B61D1] text-white flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div
+          class="border border-[#2B61D1] text-white flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border border-[#2B61D1] text-white flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="lg:flex lg:gap-10 lg:justify-center lg:items-start container">
+        <div
+          class="border border-[#2B61D1] text-white flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div
+          class="border border-[#2B61D1] text-white flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border border-[#2B61D1] text-white flex flex-col justify-center items-center p-5 rounded-3xl shadow mb-8 lg:w-80 cursor-pointer"
+          data-aos="fade-up">
+          <img
+            class="w-56 brightness-50 hover:brightness-125 hover: rounded-2xl transition ease-in hover:-translate-y-2 mb-2 duration-300"
+            src="../assets/images/timthumb.jfif" alt="">
+          <h1 class=" font-semibold text-center">دانلود آهنگ رضا برون به نام هیجان</h1>
+          <a href="#"
+            class="font-medium mt-2 hover:text-[#2B61D1] border border-[#2B61D1] w-full text-center py-2 rounded-xl">ادامه
+            و دانلود</a>
+          <div class="flex justify-evenly  w-full mt-4 h-5 ">
+            <div class="flex gap-9 items-center">
+              <div class="flex items-center gap-2">
+                <img src="../assets/images/icons8-user-50.png" class="w-6" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200">رضا برون</h2>
+              </div>
+              <div class="flex items-center gap-2">
+                <img class="w-6" src="../assets/images/icons8-eye-24.png" alt="">
+                <h2 class="font-light text-lg hover:text-[#2B61D1] duration-200 mt-1">2354</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class=" flex justify-center">
+        <div
+          class="bg-white h-auto p-3 w-[250px] lg:w-full lg:max-w-[900px] flex gap-3 items-center justify-center rounded-xl dark:text-[#111] dark:bg-[#1a446e]">
+          <span class="bg-bermuda hidden lg:flex  px-4 py-2">صفحه 1 از 269</span>
+          <a href="#" class="hover:bg-bermuda flex lg:flex px-4 py-2">1</a>
+          <a href="#" class="hover:bg-bermuda flex lg:flex  px-4 py-2">2</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">3</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">4</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">5</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">6</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">7</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">8</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">9</a>
+          <a href="#" class="hover:bg-bermuda hidden lg:flex  px-4 py-2">10</a>
+          <span class="bg-bermuda  px-4 py-2">بعدی</span>
+          <span class="bg-bermuda  px-4 py-2">آخر</span>
+
+
+        </div>
+      </div>
+
+      
+
+    </div>
+    <div class="h-auto  py-8 dark:bg-[#0E2338] flex justify-between">
+      <h1 class="dark:text-white container ">هرگونه کپی برداری ممنوع بوده و تمامی حقوق مربوط به سایت x میباشد
+        <span><a class="text-[#ff0202]" href="https://t.me/arash_2oo4">طراحی سایت</a></span>
+      </h1>
+      <div class=" ml-20 w-32 hidden lg:flex">
+        <a href="" class="ml-4 ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#44BE53"
+            class="bi bi-whatsapp hover:fill-[#529FCB] duration-300" viewBox="0 0 16 16">
+            <path
+              d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+          </svg>
+        </a>
+        <a href="" class="">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#529FCB" viewBox="0 0 16 16"
+            class="hover:fill-[#44BE53] duration-300 bi bi-telegram">
+            <path
+              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8.154 8.154 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629.093.06.183.125.27.187.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.426 1.426 0 0 0-.013-.315.337.337 0 0 0-.114-.217.526.526 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09z" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/e6d75722bb.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+
+</body>
+
+</html>
