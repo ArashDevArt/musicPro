@@ -5,7 +5,6 @@
 ---
 
 # music website front-end !
-## [review online](https://sys113.github.io/zar-film/)
 ---
 ## tips
 
